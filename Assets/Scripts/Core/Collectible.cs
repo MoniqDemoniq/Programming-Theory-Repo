@@ -67,19 +67,20 @@ public abstract class Collectible : MonoBehaviour
     }
 
     // -------------------------------------------------------
-    // [POLYMORPHISM] Method overloading — same name, different parameters 
+    // [POLYMORPHISM] Method overloading: same name, diff. parameters 
     // -------------------------------------------------------
     protected void AddPoints(int amount)
     {
+        ScoreManager.Instance.AddScore(amount); 
         Debug.Log($"{CollectibleName} added {amount} points");
-        // ScoreManager.Instance.AddScore(amount); -- we'll uncomment this later
+
     }
 
     protected void AddPoints(int amount, float multiplier)
     {
         int finalAmount = Mathf.RoundToInt(amount * multiplier);
-        Debug.Log($"{CollectibleName} added {finalAmount} points (multiplied)");
-        // ScoreManager.Instance.AddScore(finalAmount); -- we'll uncomment this later
+        ScoreManager.Instance.AddScore(finalAmount);
+        Debug.Log($"{CollectibleName} added {finalAmount} points (multiplied)");           
     }
 
     // -------------------------------------------------------
