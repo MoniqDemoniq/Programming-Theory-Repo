@@ -130,13 +130,11 @@ public class GameManager : MonoBehaviour
         switch (newState)
         {
             case GameState.Playing:
-                // UIManager.Instance.ShowGameUI();
-                // ↑ uncomment once UIManager exists
+                UIManager.Instance.ShowGameUI();
                 break;
 
             case GameState.GameOver:
-                // UIManager.Instance.ShowGameOverUI(ScoreManager.Instance.CurrentScore);
-                // ↑ uncomment once UIManager exists
+                UIManager.Instance.ShowGameOverUI(ScoreManager.Instance.CurrentScore);
                 break;
         }
     }
@@ -146,8 +144,8 @@ public class GameManager : MonoBehaviour
     // -------------------------------------------------------
     private void UpdateTimerUI()
     {
-        // UIManager.Instance.UpdateTimerDisplay(TimeRemaining);
-        // ↑ uncomment once UIManager exists
+        UIManager.Instance.UpdateTimerDisplay(TimeRemaining);
+        
         // Debug.Log($"Time remaining: {Mathf.CeilToInt(TimeRemaining)}");
     }
 }

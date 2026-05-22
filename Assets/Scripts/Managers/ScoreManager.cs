@@ -85,8 +85,7 @@ public class ScoreManager : MonoBehaviour
     // -------------------------------------------------------
     private void UpdateScoreUI()
     {
-        // UIManager.Instance.UpdateScoreDisplay(CurrentScore);
-        // ↑ We'll uncomment this once UIManager exists
+        UIManager.Instance.UpdateScoreDisplay(CurrentScore);        
         Debug.Log($"UI updated: {FormatScore(CurrentScore)}");
     }
 
