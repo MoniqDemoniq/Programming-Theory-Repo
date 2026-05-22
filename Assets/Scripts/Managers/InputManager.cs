@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 // InputManager handles ALL mouse input for the entire game.
 // detects mouse clicks and check if a Collectible was hit.
@@ -50,7 +51,7 @@ public class InputManager : MonoBehaviour
     {
         if (!_isAcceptingInput) return;         // ignore clicks if game isn't running
 
-        if (Input.GetMouseButtonDown(0))        // 0 = left mouse button
+        if (Mouse.current.leftButton.wasPressedThisFrame)        // 0 = left mouse button
         {
             HandleMouseClick();                 // [ABSTRACTION] detail hidden below
         }
@@ -81,7 +82,7 @@ public class InputManager : MonoBehaviour
     private void HandleMouseClick()
     {
         // Convert the 2D mouse screen position into a 3D ray
-        Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
+        Ray ray = _mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
 
         // Cast the ray into the scene 
         if (Physics.Raycast(ray, out RaycastHit hit))
